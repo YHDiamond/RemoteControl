@@ -1,4 +1,13 @@
 Remote control will send X/Y data to host device. Proccessing will be handled on the host-side.
+
 Possibly hook up the joycon's button and do something fun with it. Maybe make it beep a speaker on the car or something.
 
 Host CAD files in this repo or another?
+
+It might be a good idea to add a pairing button to the car and the controller.
+
+Should also add a connect button to manually force a reconnection instead of doing it Apple-style and hoping it "just works."
+
+Is it better to put the pairing code that waits for a button press in the setup method or the loop method? 
+
+There should be a way to query the Bluetooth module to see what it is paired to, and then stop waiting for the button if it is already paired.
