@@ -1,0 +1,4 @@
+Remote control will send X/Y data to host device. Proccessing will be handled on the host-side.
+Possibly hook up the joycon's button and do something fun with it. Maybe make it beep a speaker on the car or something.
+
+Host CAD files in this repo or another?
