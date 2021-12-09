@@ -7,7 +7,6 @@
 BluetoothSerial SerialBT;
 //int x = IO32;
 
-<<<<<<< Updated upstream
   // initialize digital pins for Bluetooth Tx and Rx
   // initialize analog pins for joystick x and y
 
@@ -16,7 +15,6 @@ BluetoothSerial SerialBT;
 
 void loop() {
   // put your main code here, to run repeatedly:
-=======
 void setup() {
   pinMode(32, INPUT_PULLUP);
   Serial.begin(115200);
@@ -59,5 +57,5 @@ String format(int i) {
     default:
       return base;
   }
->>>>>>> Stashed changes
+ 
 }
