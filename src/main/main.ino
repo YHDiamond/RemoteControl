@@ -11,10 +11,6 @@ BluetoothSerial SerialBT;
   // initialize analog pins for joystick x and y
 
   //Whatever code we need to use to interface with the Bluetooth module
-}
-
-void loop() {
-  // put your main code here, to run repeatedly:
 void setup() {
   pinMode(32, INPUT_PULLUP);
   Serial.begin(115200);
@@ -44,6 +40,7 @@ void loop() {
   //SerialBT.write(basicString);
   delay(100);
 }
+
 
 String format(int i) {
   String base = String(i);
