@@ -20,20 +20,19 @@ void setup() {
 
 void loop() {
   if (SerialBT.available()) {
-    Serial.write(Serial.read());
+    Serial.write(SerialBT.read());
     return;
   }
-  
-  String total = "";
-  int x = analogRead(34);
+  String total = "";  
+  int x = analogRead(34); 
   int y = analogRead(35);
   int b = digitalRead(32);
   total = total + format(x);
   total = total + format(y);
   total = total + b;
-  char basicString[8] = {};
+  char basicString[9] = {};
   total.toCharArray(basicString, 9);
-  for (int i = 0; i < 9; i++) {
+  for (int i = 0; i <= 8; i++) {
     SerialBT.write(basicString[i]);
   }
   SerialBT.write('\n');
@@ -45,7 +44,7 @@ void loop() {
 String format(int i) {
   String base = String(i);
   switch (base.length()) {
-    case 1: 
+    case 1:
       return String("000") + base;
     case 2: 
       return String("00") + base;
