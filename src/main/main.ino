@@ -31,7 +31,7 @@ void loop() {
   total = total + format(y);
   total = total + b;
   char basicString[9] = {};
-  total.toCharArray(basicString, 9);
+  total.toCharArray(basicString, 10);
   for (int i = 0; i <= 8; i++) {
     SerialBT.write(basicString[i]);
   }
