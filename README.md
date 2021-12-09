@@ -1,2 +1,2 @@
 # RemoteControl
-Single-joycon, bluetooth-connected remote control with an Arduino Uno.
+Single-joycon, bluetooth-connected remote control with an ESP32 dev module.
