@@ -11,7 +11,7 @@ void setup() {
 
 void loop() {
   if (SerialBT.available()) {
-    Serial.write(SerialBT.read()); //Write data recieved over bluetooth to UART
+    Serial.write(SerialBT.read()); //Write data recieved over bluetooth to UART - for debugging purposes; in the final product the car will have no need to communicate back.
     return;
   }
   String total = "";  
