@@ -9,6 +9,12 @@ void setup() {
 }
 
 void loop() {
+
+  // TODO:
+  // - Pair both ESP32s together
+  // - Actually store the data recieved from the remote instead of just pushing it out of the UART
+  // - Write a parser for recieved joystick data
+
   if (SerialBT.available()) {
     Serial.write(SerialBT.read()); //Write data recieved over Bluetooth to UART - for debugging purposes
     return;
