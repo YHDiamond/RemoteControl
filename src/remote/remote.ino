@@ -10,6 +10,9 @@ void setup() {
 }
 
 void loop() {
+  // TODO:
+  // - Pair both ESP32s together
+
   if (SerialBT.available()) {
     Serial.write(SerialBT.read()); //Write data recieved over bluetooth to UART - for debugging purposes; in the final product the car will have no need to communicate back.
     return;

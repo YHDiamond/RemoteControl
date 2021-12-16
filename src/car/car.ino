@@ -10,26 +10,7 @@ void setup() {
 
 void loop() {
   if (SerialBT.available()) {
-    Serial.write(SerialBT.read()); //Write data recieved over bluetooth to UART - for debugging purposes; in the final product the car will have no need to communicate back.
+    Serial.write(SerialBT.read()); //Write data recieved over Bluetooth to UART - for debugging purposes
     return;
   }
-    //char c = 'A';
-    //SerialBT.write(c); //Write output to Bluetooth serial port
-    //delay(100); //100ms delay to make output more human-readable. Will be removed or reduced eventually to reduce latency.
-}
-
-
-String format(int i) {
-  String base = String(i);
-  switch (base.length()) {
-    case 1:
-      return String("000") + base;
-    case 2: 
-      return String("00") + base;
-    case 3: 
-      return String("0") + base;
-    default:
-      return base;
-  }
- 
 }
