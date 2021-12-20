@@ -18,8 +18,8 @@ void onDataSent(const uint8_t *mac_addr, esp_now_send_status_t status) {
 }
 
 void setup() {
-  pinMode(32, INPUT_PULLUP); //Set pin 32 as pullup for joystick button
-  Serial.begin(115200); //Open serial port at 115200 baud for Bluetooth transmission
+  pinMode(32, INPUT_PULLUP);
+  Serial.begin(115200);
   WiFi.mode(WIFI_STA);
   Serial.println("WiFi MAC Address: " + WiFi.macAddress());
 
