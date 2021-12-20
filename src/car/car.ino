@@ -2,17 +2,21 @@
 #include <WiFi.h>
 
 typedef struct struct_message {
-    char a[32];
-    int b;
-    float c;
-    bool d;
+  int x;
+  int y;
+  bool button;
 } struct_message;
 
 struct_message myData;
 
 void OnDataRecv(const uint8_t * mac, const uint8_t *incomingData, int len) {
   memcpy(&myData, incomingData, sizeof(myData));
-  Serial.println(myData.a);
+  Serial.print("X: ");
+  Serial.print(myData.x);
+  Serial.print("; Y: ");
+  Serial.print(myData.y);
+  Serial.print("; Button: ");
+  Serial.println(myData.button);
 }
 
 void setup() {

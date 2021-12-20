@@ -5,10 +5,9 @@ uint8_t broadcastAddress[] = {0xC4, 0x4F, 0x33, 0x66, 0xCA, 0xC1};
 //C4:4F:33:66:CA:C1
 
 typedef struct struct_message {
-  char a[32];
-  int b;
-  float c;
-  bool d;
+  int x;
+  int y;
+  bool button;
 } struct_message;
 
 struct_message myData;
@@ -49,17 +48,9 @@ void loop() {
   int b = digitalRead(32); //Initialize pin 32 for digital read of joystick button.
 
 //Concatenate output
-  total = total + format(x);
-  total = total + format(y);
-  total = total + b;
-  char basicString[9] = {};
-  total.toCharArray(basicString, 10);
-  strcpy(myData.a, basicString);
-  myData.b = random(1,20);
-  myData.c = 1.2;
-  myData.d = false;
-  esp_err_t result = esp_now_send(broadcastAddress, (uint8_t *) &myData, sizeof(myData));
-
+  myData.x = x;
+  myData.y = y;
+  myData.button = b;
   if (result == ESP_OK) {
     Serial.println("Sent with success");
   }
