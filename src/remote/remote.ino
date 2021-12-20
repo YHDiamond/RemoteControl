@@ -51,7 +51,7 @@ void loop() {
   myData.x = x;
   myData.y = y;
   myData.button = !b;
-  
+  esp_err_t result = esp_now_send(broadcastAddress, (uint8_t *) &myData, sizeof(myData));
   delay(100); //100ms delay to make output more human-readable. Will be removed or reduced eventually to reduce latency.
 }
 
