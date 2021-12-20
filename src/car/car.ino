@@ -12,10 +12,10 @@ struct_message myData;
 void OnDataRecv(const uint8_t * mac, const uint8_t *incomingData, int len) {
   memcpy(&myData, incomingData, sizeof(myData));
   Serial.print("X: ");
-  Serial.print(myData.x);
-  Serial.print("; Y: ");
-  Serial.print(myData.y);
-  Serial.print("; Button: ");
+  Serial.println(myData.x);
+  Serial.print("Y: ");
+  Serial.println(myData.y);
+  Serial.print("Button: ");
   Serial.println(myData.button);
 }
 
