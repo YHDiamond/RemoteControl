@@ -9,7 +9,7 @@ typedef struct struct_message {
 
 struct_message myData;
 
-void OnDataRecv(const uint8_t * mac, const uint8_t *incomingData, int len) {
+void onDataRecv(const uint8_t * mac, const uint8_t *incomingData, int len) {
   memcpy(&myData, incomingData, sizeof(myData));
   Serial.print("X: ");
   Serial.print(myData.x);
@@ -28,7 +28,7 @@ void setup() {
     Serial.println("Error initializing ESP-NOW");
     return;
   }
-  esp_now_register_recv_cb(OnDataRecv);
+  esp_now_register_recv_cb(onDataRecv);
 }
 
 void loop() {

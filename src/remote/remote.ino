@@ -50,13 +50,8 @@ void loop() {
 //Concatenate output
   myData.x = x;
   myData.y = y;
-  myData.button = b;
-  if (result == ESP_OK) {
-    Serial.println("Sent with success");
-  }
-  else {
-    Serial.println("Error sending the data");
-  }
+  myData.button = !!b;
+  
   delay(100); //100ms delay to make output more human-readable. Will be removed or reduced eventually to reduce latency.
 }
 
