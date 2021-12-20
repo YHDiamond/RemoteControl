@@ -52,21 +52,4 @@ void loop() {
   myData.y = y;
   myData.button = !b;
   esp_err_t result = esp_now_send(broadcastAddress, (uint8_t *) &myData, sizeof(myData));
-  delay(100); //100ms delay to make output more human-readable. Will be removed or reduced eventually to reduce latency.
-}
-
-
-String format(int i) {
-  String base = String(i);
-  switch (base.length()) {
-    case 1:
-      return String("000") + base;
-    case 2: 
-      return String("00") + base;
-    case 3: 
-      return String("0") + base;
-    default:
-      return base;
-  }
- 
 }
