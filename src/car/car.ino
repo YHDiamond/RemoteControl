@@ -23,6 +23,33 @@ void onDataRecv(const uint8_t * mac, const uint8_t *incomingData, int len) {
 }
 
 void setup() {
+  pinMode(19, OUTPUT);
+  pinMode(18, OUTPUT);
+  pinMode(5, OUTPUT);
+  pinMode(17,OUTPUT);
+  digitalWrite(19, LOW);
+  digitalWrite(18, LOW);
+  digitalWrite(5, LOW);
+  digitalWrite(17, LOW);
+
+  while (true) {
+    digitalWrite(19, HIGH);
+    delay(100);
+    digitalWrite(19, LOW);
+    delay(100);
+    digitalWrite(18, HIGH);
+    delay(100);
+    digitalWrite(18, LOW);
+    delay(100);
+    digitalWrite(5, HIGH);
+    delay(100);
+    digitalWrite(5, LOW);
+    delay(100);
+    digitalWrite(17, HIGH);
+    delay(100);
+    digitalWrite(17, LOW);
+    delay(100);
+  }
   Serial.begin(115200);
   WiFi.mode(WIFI_MODE_STA);
   Serial.println("WiFi MAC Address: " + WiFi.macAddress());
