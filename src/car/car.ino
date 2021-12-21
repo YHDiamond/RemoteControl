@@ -1,8 +1,8 @@
 #include <esp_now.h>
 #include <WiFi.h>
 
-#define Y_LOW 1700;
-#define Y_HIGH 2000;
+#define Y_LOW 1700
+#define Y_HIGH 2000
 
 typedef struct struct_message {
   int x;
