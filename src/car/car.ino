@@ -1,6 +1,9 @@
 #include <esp_now.h>
 #include <WiFi.h>
 
+#define Y_LOW 1700;
+#define Y_HIGH 2000;
+
 typedef struct struct_message {
   int x;
   int y;
@@ -20,7 +23,22 @@ void onDataRecv(const uint8_t * mac, const uint8_t *incomingData, int len) {
   Serial.print(y);
   Serial.print("; Button: ");
   Serial.println(buttonState);
+  byte power;
+  if (y <= Y_LOW) {
+    power = map(y, 0, Y_LOW, 0, 255);
+    digitalWrite(19, LOW);
+    analogWrite(18, power);
+    digitalWrite(5, LOW);
+    analogWrite(17, power);
+  } else if (y >= Y_HIGH) {
+    power = map(y, Y_HIGH, 4096, 0, 255);
+    analogWrite(19, power);
+    digitalWrite(18, LOW);
+    analogWrite(5, power);
+    digitalWrite(17, LOW);
+  }
 
+  
 // < and > are reversed because the potentiometer reading is low at the top and high at the bottom.
 //  if (y < forward_threshold) {
   //PWM both motors at maximum forward speed
