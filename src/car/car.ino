@@ -1,8 +1,8 @@
 #include <esp_now.h>
 #include <WiFi.h>
 
-#define Y_LOW 1700;
-#define Y_HIGH 2000;
+#define Y_LOW 1700
+#define Y_HIGH 2000
 
 typedef struct struct_message {
   int x;
@@ -25,7 +25,7 @@ void onDataRecv(const uint8_t * mac, const uint8_t *incomingData, int len) {
   Serial.print(buttonState);
   byte power;
   if (y <= Y_LOW) {
-    power = map(y, 0, Y_LOW, 0, 255);
+    power = map(y, 0, Y_LOW, 255, 0);
 
     digitalWrite(19, LOW);
     analogWrite(18, power);
