@@ -1,5 +1,6 @@
 #include <esp_now.h>
 #include <WiFi.h>
+#include <analogWrite.h>
 
 #define Y_LOW 1700
 #define Y_HIGH 2000
