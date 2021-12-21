@@ -20,6 +20,20 @@ void onDataRecv(const uint8_t * mac, const uint8_t *incomingData, int len) {
   Serial.print(y);
   Serial.print("; Button: ");
   Serial.println(buttonState);
+
+// < and > are reversed because the potentiometer reading is low at the top and high at the bottom.
+//  if (y < forward_threshold) {
+  //PWM both motors at maximum forward speed
+//}
+
+//  if (y > reverse_threshold) {
+  //PWM both motors at maximum reverse speed
+//}
+
+//  if (buttonState == true) {
+  //Do something fun
+//}
+
 }
 
 void setup() {
@@ -32,23 +46,23 @@ void setup() {
   digitalWrite(5, LOW);
   digitalWrite(17, LOW);
 
-  while (true) {
-    digitalWrite(19, HIGH);
-    delay(100);
-    digitalWrite(19, LOW);
-    delay(100);
-    digitalWrite(18, HIGH);
-    delay(100);
-    digitalWrite(18, LOW);
-    delay(100);
-    digitalWrite(5, HIGH);
-    delay(100);
-    digitalWrite(5, LOW);
-    delay(100);
-    digitalWrite(17, HIGH);
-    delay(100);
-    digitalWrite(17, LOW);
-    delay(100);
+//  while (true) {
+//    digitalWrite(19, HIGH);
+//    delay(100);
+//    digitalWrite(19, LOW);
+//    delay(100);
+//    digitalWrite(18, HIGH);
+//    delay(100);
+//    digitalWrite(18, LOW);
+//    delay(100);
+//    digitalWrite(5, HIGH);
+//    delay(100);
+//    digitalWrite(5, LOW);
+//    delay(100);
+//    digitalWrite(17, HIGH);
+//    delay(100);
+//    digitalWrite(17, LOW);
+//    delay(100);
   }
   Serial.begin(115200);
   WiFi.mode(WIFI_MODE_STA);
