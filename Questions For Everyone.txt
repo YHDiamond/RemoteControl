@@ -1,0 +1,12 @@
+We are done with both the circuitry and the software of the controller. All that needs to be done is to design an ergonomic enclosure.
+
+On the car side, we are simply outputting the joystick X, Y, and button state to the UART. In order to continue with the software, we need to know:
+What type of drive system is being used?
+- four wheels; four wheel independent drive - easy hardware, hard software
+- four wheels; four wheel drive, front differential with steering column - hard hardware, easy software - differential + steering column + powered front wheels is quite difficult
+- four wheels; front wheel drive, front differential drive with steering column - effectively identical to previous but rear wheels are free spinning rather than driven
+- four wheels; rear wheel drive, front differential with steering column - medium hardware, easy software - front wheels don't need to be powered but still need to build a steering column and differential
+- three wheels; two wheel drive, single wheel in rear - easy hardware, medium software
+- three wheels; two wheel drive, single wheel in front - identical to previous
+- three wheels; one wheel drive, single wheel in front - hard hardware, medium software
+- three wheels; one wheel drive, single wheel in front - identical to previous
