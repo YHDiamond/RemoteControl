@@ -38,11 +38,9 @@ void setup() {
     Serial.println("Failed to add peer");
   }
 
-  
 }
 
 void loop() {
-  String total = "";  
   int x = analogRead(34); //Initialize pin 34 for analog read of joystick x potentiometer
   int y = analogRead(35); //Initialize pin 35 for analog read of joystick y potentiometer
   int b = digitalRead(32); //Initialize pin 32 for digital read of joystick button.
