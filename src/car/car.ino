@@ -27,24 +27,24 @@ void onDataRecv(const uint8_t * mac, const uint8_t *incomingData, int len) {
   byte power = 0;
   if (y <= Y_LOW) {
     power = map(y, 0, Y_LOW, 255, 0);
-    digitalWrite(19, LOW);
+    analogWrite(19, LOW);
     analogWrite(18, power);
-    digitalWrite(5, LOW);
+    analogWrite(5, LOW);
     analogWrite(17, power);
   } else if (y >= Y_HIGH) {
     power = map(y, Y_HIGH, 4096, 0, 255);
     analogWrite(19, power);
-    digitalWrite(18, LOW);
+    analogWrite(18, LOW);
     analogWrite(5, power);
-    digitalWrite(17, LOW);
+    analogWrite(17, LOW);
   }
   Serial.print("; Power: ");
   Serial.println(power);
   if (power == 0) {
-        digitalWrite(19, LOW);
-    digitalWrite(18, LOW);
-    digitalWrite(5, LOW);
-    digitalWrite(17, LOW);  
+    analogWrite(19, LOW);
+    analogWrite(18, LOW);
+    analogWrite(5, LOW);
+    analogWrite(17, LOW);  
   }
 
   
