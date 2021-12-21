@@ -1,4 +1,3 @@
-#include <analogWrite.h>
 #include <esp_now.h>
 #include <WiFi.h>
 
@@ -24,7 +23,7 @@ void onDataRecv(const uint8_t * mac, const uint8_t *incomingData, int len) {
   Serial.print(y);
   Serial.print("; Button: ");
   Serial.print(buttonState);
-  byte power;
+  byte power = 0;
   if (y <= Y_LOW) {
     power = map(y, 0, Y_LOW, 255, 0);
 
