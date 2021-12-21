@@ -22,10 +22,11 @@ void onDataRecv(const uint8_t * mac, const uint8_t *incomingData, int len) {
   Serial.print("; Y: ");
   Serial.print(y);
   Serial.print("; Button: ");
-  Serial.println(buttonState);
+  Serial.print(buttonState);
   byte power;
   if (y <= Y_LOW) {
     power = map(y, 0, Y_LOW, 0, 255);
+
     digitalWrite(19, LOW);
     analogWrite(18, power);
     digitalWrite(5, LOW);
@@ -36,7 +37,14 @@ void onDataRecv(const uint8_t * mac, const uint8_t *incomingData, int len) {
     digitalWrite(18, LOW);
     analogWrite(5, power);
     digitalWrite(17, LOW);
+  } else {
+    digitalWrite(19, LOW);
+    digitalWrite(18, LOW);
+    digitalWrite(5, LOW);
+    digitalWrite(17, LOW);   
   }
+  Serial.print("; Power: ");
+  Serial.println(power);
 
   
 // < and > are reversed because the potentiometer reading is low at the top and high at the bottom.
