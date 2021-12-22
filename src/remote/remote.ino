@@ -2,7 +2,7 @@
 #include <WiFi.h>
 
 //Store the MAC address of the car that we need to send data to
-uint8_t broadcastAddress[] = {0xC4, 0x4F, 0x33, 0x66, 0xCA, 0xC1};
+uint8_t broadcastAddress[] = {0x7C, 0x9E, 0xBD, 0x5F, 0x1E, 0xC4};
 
 //struct with data to be sent
 typedef struct struct_message {
