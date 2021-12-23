@@ -2,7 +2,6 @@
 #include <analogWrite.h>
 #include <esp_now.h>
 #include <WiFi.h>
-#include <analogWrite.h>
 
 
 //Threshold values for Y axis dead zone
