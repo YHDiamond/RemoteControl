@@ -3,11 +3,12 @@
 #include <esp_now.h>
 #include <WiFi.h>
 
+#define servoPin 4
 
 //Threshold values for Y axis dead zone
 #define Y_LOW 1700
 #define Y_HIGH 2000
-
+Servo servo;
 //struct with data to be recieved
 typedef struct struct_message {
   int x;
@@ -47,15 +48,25 @@ void onDataRecv(const uint8_t * mac, const uint8_t *incomingData, int len) {
   }
   //Write 8-bit power value to serial port. For debugging only; will be removed to reduce latency in the final product.
   Serial.print("; Power: ");
-  Serial.println(power);
+  Serial.print(power);
 
   //Extra reassurance that if the joystick is in the center and not being moved, that the motors will not spin.
   if (power == 0) {
     analogWrite(19, LOW);
     analogWrite(18, LOW);
     analogWrite(5, LOW);
-    analogWrite(17, LOW);  
+    analogWrite(17, LOW);
   }
+ 
+  byte position = 90;
+  if (x <= Y_LOW) {
+    position = map(x, 0, Y_LOW, 0, 90);
+  } else if (x >= Y_HIGH) {
+    position = map(x, Y_HIGH, 4096, 90, 180);
+  }
+  servo.write(position);
+  Serial.print("; ServPos: ");
+  Serial.println(position);
 
 }
 
@@ -70,7 +81,7 @@ void setup() {
   digitalWrite(18, LOW);
   digitalWrite(5, LOW);
   digitalWrite(17, LOW);
-
+  servo.attach(servoPin);
   //Open debug serial port. Will be removed in the final product.
   Serial.begin(115200);
 
