@@ -3,7 +3,7 @@
 #include <esp_now.h>
 #include <WiFi.h>
 
-#define servoPin 34
+#define servoPin 33
 #define spkrPin 4
 
 //Threshold values for Y axis dead zone

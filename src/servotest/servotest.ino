@@ -1,10 +1,11 @@
-#include <ESP32_Servo.h>
+#include <ESP32Servo.h>
 
-#define servoPin 34
+#define servoPin 33
 Servo servo;
 
 void setup() {
-    pinMode(34, OUTPUT);
+    //pinMode(34, OUTPUT);
+    
     servo.attach(servoPin);
 }
 
