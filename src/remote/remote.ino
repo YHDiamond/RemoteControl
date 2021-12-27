@@ -57,5 +57,4 @@ void loop() {
 
   //Send data
   esp_err_t result = esp_now_send(broadcastAddress, (uint8_t *) &myData, sizeof(myData));
-  delay(1000);
 }

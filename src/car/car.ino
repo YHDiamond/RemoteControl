@@ -3,11 +3,12 @@
 #include <esp_now.h>
 #include <WiFi.h>
 
-#define servoPin 4
+#define servoPin 34
+#define spkrPin 4
 
 //Threshold values for Y axis dead zone
-#define Y_LOW 1700
-#define Y_HIGH 2000
+#define Y_LOW 1400
+#define Y_HIGH 1850
 Servo servo;
 //struct with data to be recieved
 typedef struct struct_message {
@@ -57,17 +58,24 @@ void onDataRecv(const uint8_t * mac, const uint8_t *incomingData, int len) {
     analogWrite(5, LOW);
     analogWrite(17, LOW);
   }
- 
+  
   byte position = 90;
   if (x <= Y_LOW) {
     position = map(x, 0, Y_LOW, 0, 90);
   } else if (x >= Y_HIGH) {
     position = map(x, Y_HIGH, 4096, 90, 180);
   }
-  servo.write(position);
+  //servo.write(position);
   Serial.print("; ServPos: ");
   Serial.println(position);
-
+  if (buttonState == 1) {
+    analogWrite(spkrPin, 255);
+  }
+  else {
+    analogWrite(spkrPin, 0);
+  }
+  
+  
 }
 
 //Because of the way the ESPNOW protocol works, the connection is always maintained and the method never completes. Thus, there is no need for a loop method, only a setup method.
