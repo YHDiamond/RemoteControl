@@ -89,6 +89,7 @@ void setup() {
   digitalWrite(18, LOW);
   digitalWrite(5, LOW);
   digitalWrite(17, LOW);
+  pinMode(34, OUTPUT);					//maybe this is what we were missing?
   servo.attach(servoPin);
   //Open debug serial port. Will be removed in the final product.
   Serial.begin(115200);
