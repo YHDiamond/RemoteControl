@@ -14,8 +14,8 @@ struct_message myData;
 
 //Return on serial whether data packet was sent successfully. I'm not exactly sure how the esp_now library works, and this method may call another method with its input parameters. The Serial statements are for debugging and will be removed.
 void onDataSent(const uint8_t *mac_addr, esp_now_send_status_t status) {
-  Serial.print("\r\nLast Packet Send Status:\t");
-  Serial.println(status == ESP_NOW_SEND_SUCCESS ? "Delivery Success" : "Delivery Fail");
+  //Serial.print("\r\nLast Packet Send Status:\t");
+  //Serial.println(status == ESP_NOW_SEND_SUCCESS ? "Delivery Success" : "Delivery Fail");
 }
 
 void setup() {
@@ -23,13 +23,13 @@ void setup() {
   pinMode(32, INPUT_PULLUP);
 
   //Open debug serial port. Will be removed in the final product.
-  Serial.begin(115200);
+  //Serial.begin(115200);
 
   //Set the WiFi chipset mode to station
   WiFi.mode(WIFI_STA);
 
   //Return MAC address on serial port. For debugging purposes; will be removed in the final product.
-  Serial.println("WiFi MAC Address: " + WiFi.macAddress());
+  //Serial.println("WiFi MAC Address: " + WiFi.macAddress());
 
   //Initialize ESPNOW
   esp_now_init();
@@ -57,4 +57,5 @@ void loop() {
 
   //Send data
   esp_err_t result = esp_now_send(broadcastAddress, (uint8_t *) &myData, sizeof(myData));
+  delay(50);
 }
