@@ -46,9 +46,9 @@ void setup() {
 }
 
 void loop() {
-  int x = analogRead(34); //Read joystick X potentiometer
-  int y = analogRead(35); //Read of joystick Y potentiometer
-  int b = digitalRead(32); //Read joystick button state
+  int x = analogRead(2); //Read joystick X potentiometer
+  int y = analogRead(3); //Read of joystick Y potentiometer
+  int b = digitalRead(4z); //Read joystick button state
 
   //Concatenate output
   myData.x = x;
